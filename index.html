@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Rincón del Sabor</title>
+    <title>El Rincón del Sabor | Premium Lounge</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
@@ -13,7 +12,9 @@
     <div id="notification" class="notification"></div>
 
     <header>
-        <h1><i class="fas fa-cocktail"></i> El Rincón del Sabor</h1>
+        <div class="header-logo">
+            <h1><i class="fas fa-cocktail"></i> El Rincón del Sabor</h1>
+        </div>
         <div class="controls">
             <button class="btn btn-primary" id="openBar">
                 <i class="fas fa-door-open"></i> Abrir Bar
@@ -25,129 +26,186 @@
     </header>
 
     <main>
-        <!-- Barra de productos -->
-        <section class="bar">
-            <h2>Barra</h2>
+        <!-- Barra de productos (Sidebar) -->
+        <aside class="bar">
+            <h2><i class="fas fa-wine-bottle"></i> Barra</h2>
             <div class="products">
                 <!-- Bebidas -->
                 <div class="product" draggable="true" data-name="Cerveza" data-price="8500">
-                    <i class="fas fa-beer"></i> Cerveza - $8.500
+                    <i class="fas fa-beer"></i> 
+                    <div class="product-info">
+                        <span class="name">Cerveza</span>
+                        <span class="price">$8.500</span>
+                    </div>
                 </div>
                 <div class="product" draggable="true" data-name="Vino" data-price="25000">
-                    <i class="fas fa-wine-glass"></i> Vino - $25.000
+                    <i class="fas fa-wine-glass"></i>
+                    <div class="product-info">
+                        <span class="name">Vino</span>
+                        <span class="price">$25.000</span>
+                    </div>
                 </div>
                 <div class="product" draggable="true" data-name="Cóctel" data-price="35000">
-                    <i class="fas fa-cocktail"></i> Cóctel - $35.000
+                    <i class="fas fa-cocktail"></i>
+                    <div class="product-info">
+                        <span class="name">Cóctel</span>
+                        <span class="price">$35.000</span>
+                    </div>
                 </div>
                 <div class="product" draggable="true" data-name="Refresco" data-price="4000">
-                    <i class="fas fa-glass-whiskey"></i> Refresco - $4.000
+                    <i class="fas fa-glass-whiskey"></i>
+                    <div class="product-info">
+                        <span class="name">Refresco</span>
+                        <span class="price">$4.000</span>
+                    </div>
                 </div>
-                <!-- Mecatos -->
+                <!-- Comida -->
                 <div class="product" draggable="true" data-name="Papas" data-price="4000">
-                    <i class="fas fa-french-fries"></i> Papas - $4.000
+                    <i class="fas fa-hamburger"></i>
+                    <div class="product-info">
+                        <span class="name">Papas</span>
+                        <span class="price">$4.000</span>
+                    </div>
                 </div>
                 <div class="product" draggable="true" data-name="Nachos" data-price="22000">
-                    <i class="fas fa-cheese"></i> Nachos - $22.000
+                    <i class="fas fa-pizza-slice"></i>
+                    <div class="product-info">
+                        <span class="name">Nachos</span>
+                        <span class="price">$22.000</span>
+                    </div>
                 </div>
                 <div class="product" draggable="true" data-name="Alitas" data-price="37000">
-                    <i class="fas fa-drumstick-bite"></i> Alitas - $37.000
+                    <i class="fas fa-drumstick-bite"></i>
+                    <div class="product-info">
+                        <span class="name">Alitas</span>
+                        <span class="price">$37.000</span>
+                    </div>
                 </div>
             </div>
+        </aside>
+
+        <!-- Mesas (Area Principal) -->
+        <section class="main-content">
+            <div class="tables">
+                <div class="table" id="table1">
+                    <div class="table-header">
+                        <h2><i class="fas fa-chair"></i> Mesa 1</h2>
+                        <span class="status-badge">Libre</span>
+                    </div>
+                    <div class="drop-zone">Suelta productos aquí</div>
+                    <div class="consumed-products"></div>
+                    <div class="bill">
+                        <span class="bill-total">Total: $0.00</span>
+                        <div class="table-actions">
+                            <button class="btn btn-generate" data-table="1">
+                                <i class="fas fa-file-invoice-dollar"></i> Factura
+                            </button>
+                            <button class="btn btn-clear" data-table="1">
+                                <i class="fas fa-broom"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table" id="table2">
+                    <div class="table-header">
+                        <h2><i class="fas fa-chair"></i> Mesa 2</h2>
+                        <span class="status-badge">Libre</span>
+                    </div>
+                    <div class="drop-zone">Suelta productos aquí</div>
+                    <div class="consumed-products"></div>
+                    <div class="bill">
+                        <span class="bill-total">Total: $0.00</span>
+                        <div class="table-actions">
+                            <button class="btn btn-generate" data-table="2">
+                                <i class="fas fa-file-invoice-dollar"></i> Factura
+                            </button>
+                            <button class="btn btn-clear" data-table="2">
+                                <i class="fas fa-broom"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table" id="table3">
+                    <div class="table-header">
+                        <h2><i class="fas fa-chair"></i> Mesa 3</h2>
+                        <span class="status-badge">Libre</span>
+                    </div>
+                    <div class="drop-zone">Suelta productos aquí</div>
+                    <div class="consumed-products"></div>
+                    <div class="bill">
+                        <span class="bill-total">Total: $0.00</span>
+                        <div class="table-actions">
+                            <button class="btn btn-generate" data-table="3">
+                                <i class="fas fa-file-invoice-dollar"></i> Factura
+                            </button>
+                            <button class="btn btn-clear" data-table="3">
+                                <i class="fas fa-broom"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table" id="table4">
+                    <div class="table-header">
+                        <h2><i class="fas fa-chair"></i> Mesa 4</h2>
+                        <span class="status-badge">Libre</span>
+                    </div>
+                    <div class="drop-zone">Suelta productos aquí</div>
+                    <div class="consumed-products"></div>
+                    <div class="bill">
+                        <span class="bill-total">Total: $0.00</span>
+                        <div class="table-actions">
+                            <button class="btn btn-generate" data-table="4">
+                                <i class="fas fa-file-invoice-dollar"></i> Factura
+                            </button>
+                            <button class="btn btn-clear" data-table="4">
+                                <i class="fas fa-broom"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumen general -->
+            <section class="summary">
+                <div class="summary-info">
+                    <h2><i class="fas fa-chart-line"></i> Corte de Caja</h2>
+                    <p>Resumen total de ventas realizadas hoy.</p>
+                </div>
+                <div class="total-bar">
+                    <span id="totalBar">$0.00</span>
+                    <button class="btn btn-primary" id="generateReport">
+                        <i class="fas fa-file-pdf"></i> Reporte
+                    </button>
+                </div>
+            </section>
         </section>
 
-        <!-- Mesas -->
-        <section class="tables">
-            <div class="table" id="table1">
-                <h2><i class="fas fa-utensils"></i> Mesa 1</h2>
-                <div class="drop-zone"></div>
-                <div class="consumed-products"></div>
-                <div class="bill">
-                    <span class="bill-total">Total: $0.00</span>
-                    <button class="btn btn-generate" data-table="1">
-                        <i class="fas fa-file-invoice-dollar"></i> Factura
-                    </button>
-                    <button class="btn btn-clear" data-table="1">
-                        <i class="fas fa-broom"></i> Limpiar
-                    </button>
-                </div>
-            </div>
-            <!-- Repetir para las otras 3 mesas -->
-            <div class="table" id="table2">
-                <h2><i class="fas fa-utensils"></i> Mesa 2</h2>
-                <div class="drop-zone"></div>
-                <div class="consumed-products"></div>
-                <div class="bill">
-                    <span class="bill-total">Total: $0.00</span>
-                    <button class="btn btn-generate" data-table="2">
-                        <i class="fas fa-file-invoice-dollar"></i> Factura
-                    </button>
-                    <button class="btn btn-clear" data-table="2">
-                        <i class="fas fa-broom"></i> Limpiar
-                    </button>
-                </div>
-            </div>
-            <div class="table" id="table3">
-                <h2><i class="fas fa-utensils"></i> Mesa 3</h2>
-                <div class="drop-zone"></div>
-                <div class="consumed-products"></div>
-                <div class="bill">
-                    <span class="bill-total">Total: $0.00</span>
-                    <button class="btn btn-generate" data-table="3">
-                        <i class="fas fa-file-invoice-dollar"></i> Factura
-                    </button>
-                    <button class="btn btn-clear" data-table="3">
-                        <i class="fas fa-broom"></i> Limpiar
-                    </button>
-                </div>
-            </div>
-            <div class="table" id="table4">
-                <h2><i class="fas fa-utensils"></i> Mesa 4</h2>
-                <div class="drop-zone"></div>
-                <div class="consumed-products"></div>
-                <div class="bill">
-                    <span class="bill-total">Total: $0.00</span>
-                    <button class="btn btn-generate" data-table="4">
-                        <i class="fas fa-file-invoice-dollar"></i> Factura
-                    </button>
-                    <button class="btn btn-clear" data-table="4">
-                        <i class="fas fa-broom"></i> Limpiar
-                    </button>
-                </div>
-            </div>
-        </section>
-
+        <!-- Modals and Overlays -->
         <div id="tableModal" class="modal">
             <div class="modal-content">
                 <div class="modal-sidebar">
-                    <h3>Menú <i class="fas fa-cocktail"></i></h3>
+                    <h3>Añadir Item</h3>
                     <div class="modal-products"></div>
                 </div>
                 <div class="modal-main">
                     <h2 id="modalTableTitle"></h2>
                     <div class="modal-consumed-products"></div>
-                    <div class="modal-total">
-                        <span>Total: $<span id="modalTotal">0.00</span></span>
-                        <button class="btn btn-generate" id="modalGenerateBill">
-                            <i class="fas fa-file-invoice-dollar"></i> Factura
+                    <div class="modal-footer">
+                        <div class="modal-total">Total: $<span id="modalTotal">0.00</span></div>
+                        <button class="btn btn-primary" id="modalGenerateBill">
+                            <i class="fas fa-file-invoice-dollar"></i> Generar Factura
                         </button>
                     </div>
                 </div>
                 <span class="close-modal">&times;</span>
             </div>
         </div>
-
-        <!-- Resumen general -->
-        <section class="summary">
-            <h2><i class="fas fa-chart-line"></i> Resumen General</h2>
-            <div class="total-bar">
-                <span>Total del Bar: $<span class = "totalBar" id="totalBar">0.00</span></span>
-                <button class="btn btn-generate" id="generateReport">
-                    <i class="fas fa-file-pdf"></i> Reporte General
-                </button>
-            </div>
-        </section>
     </main>
 
     <script src="script.js"></script>
 </body>
 </html>
+html>
