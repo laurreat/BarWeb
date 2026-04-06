@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Rincón del Sabor | Premium Lounge</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍹</text></svg>">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
@@ -17,10 +18,10 @@
         </div>
         <div class="controls">
             <button class="btn btn-primary" id="openBar">
-                <i class="fas fa-door-open"></i> Abrir Bar
+                <i class="fas fa-play"></i> Abrir Bar
             </button>
-            <button class="btn btn-danger" id="closeBar">
-                <i class="fas fa-door-closed"></i> Cerrar Bar
+            <button class="btn btn-danger" id="closeBar" disabled>
+                <i class="fas fa-stop"></i> Cerrar Bar
             </button>
         </div>
     </header>
@@ -38,6 +39,7 @@
                         <span class="price">$8.500</span>
                     </div>
                 </div>
+                <!-- ... other products ... -->
                 <div class="product" draggable="true" data-name="Vino" data-price="25000">
                     <i class="fas fa-wine-glass"></i>
                     <div class="product-info">
@@ -59,7 +61,6 @@
                         <span class="price">$4.000</span>
                     </div>
                 </div>
-                <!-- Comida -->
                 <div class="product" draggable="true" data-name="Papas" data-price="4000">
                     <i class="fas fa-hamburger"></i>
                     <div class="product-info">
@@ -87,81 +88,79 @@
         <!-- Mesas (Area Principal) -->
         <section class="main-content">
             <div class="tables">
-                <div class="table" id="table1">
+                <div class="table" id="table1" data-table="1">
                     <div class="table-header">
-                        <h2><i class="fas fa-chair"></i> Mesa 1</h2>
+                        <h2>Mesa 1</h2>
                         <span class="status-badge">Libre</span>
                     </div>
-                    <div class="drop-zone">Suelta productos aquí</div>
+                    <div class="drop-zone">Arraste productos aquí</div>
                     <div class="consumed-products"></div>
                     <div class="bill">
-                        <span class="bill-total">Total: $0.00</span>
+                        <span class="bill-total">Total: $0</span>
                         <div class="table-actions">
-                            <button class="btn btn-generate" data-table="1">
+                            <button class="btn btn-primary btn-generate" data-table="1">
                                 <i class="fas fa-file-invoice-dollar"></i> Factura
                             </button>
-                            <button class="btn btn-clear" data-table="1">
-                                <i class="fas fa-broom"></i>
+                            <button class="btn btn-danger btn-clear" data-table="1">
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>
                     </div>
                 </div>
-
-                <div class="table" id="table2">
+                <!-- Reproduce Tables for 2, 3, 4 -->
+                <div class="table" id="table2" data-table="2">
                     <div class="table-header">
-                        <h2><i class="fas fa-chair"></i> Mesa 2</h2>
+                        <h2>Mesa 2</h2>
                         <span class="status-badge">Libre</span>
                     </div>
-                    <div class="drop-zone">Suelta productos aquí</div>
+                    <div class="drop-zone">Arraste productos aquí</div>
                     <div class="consumed-products"></div>
                     <div class="bill">
-                        <span class="bill-total">Total: $0.00</span>
+                        <span class="bill-total">Total: $0</span>
                         <div class="table-actions">
-                            <button class="btn btn-generate" data-table="2">
+                            <button class="btn btn-primary btn-generate" data-table="2">
                                 <i class="fas fa-file-invoice-dollar"></i> Factura
                             </button>
-                            <button class="btn btn-clear" data-table="2">
-                                <i class="fas fa-broom"></i>
+                            <button class="btn btn-danger btn-clear" data-table="2">
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>
                     </div>
                 </div>
-
-                <div class="table" id="table3">
+                <div class="table" id="table3" data-table="3">
                     <div class="table-header">
-                        <h2><i class="fas fa-chair"></i> Mesa 3</h2>
+                        <h2>Mesa 3</h2>
                         <span class="status-badge">Libre</span>
                     </div>
-                    <div class="drop-zone">Suelta productos aquí</div>
+                    <div class="drop-zone">Arraste productos aquí</div>
                     <div class="consumed-products"></div>
                     <div class="bill">
-                        <span class="bill-total">Total: $0.00</span>
+                        <span class="bill-total">Total: $0</span>
                         <div class="table-actions">
-                            <button class="btn btn-generate" data-table="3">
+                            <button class="btn btn-primary btn-generate" data-table="3">
                                 <i class="fas fa-file-invoice-dollar"></i> Factura
                             </button>
-                            <button class="btn btn-clear" data-table="3">
-                                <i class="fas fa-broom"></i>
+                            <button class="btn btn-danger btn-clear" data-table="3">
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>
                     </div>
                 </div>
-
-                <div class="table" id="table4">
+                <div class="table" id="table4" data-table="4">
                     <div class="table-header">
-                        <h2><i class="fas fa-chair"></i> Mesa 4</h2>
+                        <h2>Mesa 4</h2>
                         <span class="status-badge">Libre</span>
                     </div>
-                    <div class="drop-zone">Suelta productos aquí</div>
+                    <div class="drop-zone">Arraste productos aquí</div>
                     <div class="consumed-products"></div>
                     <div class="bill">
-                        <span class="bill-total">Total: $0.00</span>
+                        <span class="bill-total">Total: $0</span>
                         <div class="table-actions">
-                            <button class="btn btn-generate" data-table="4">
+                            <button class="btn btn-primary btn-generate" data-table="4">
                                 <i class="fas fa-file-invoice-dollar"></i> Factura
                             </button>
-                            <button class="btn btn-clear" data-table="4">
-                                <i class="fas fa-broom"></i>
+                            <button class="btn btn-danger btn-clear" data-table="4">
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>
                     </div>
@@ -171,27 +170,23 @@
             <!-- Resumen general -->
             <section class="summary">
                 <div class="summary-info">
-                    <h2><i class="fas fa-chart-line"></i> Corte de Caja</h2>
-                    <p>Resumen total de ventas realizadas hoy.</p>
+                    <h2><i class="fas fa-chart-line"></i> Total Ventas en Curso</h2>
                 </div>
                 <div class="total-bar">
-                    <span id="totalBar">$0.00</span>
-                    <button class="btn btn-primary" id="generateReport">
-                        <i class="fas fa-file-pdf"></i> Reporte
-                    </button>
+                    <span id="totalBar">$0</span>
                 </div>
             </section>
         </section>
 
-        <!-- Modals and Overlays -->
+        <!-- Modals -->
         <div id="tableModal" class="modal">
             <div class="modal-content">
                 <div class="modal-sidebar">
-                    <h3>Añadir Item</h3>
+                    <h3>Menú <i class="fas fa-cocktail"></i></h3>
                     <div class="modal-products"></div>
                 </div>
                 <div class="modal-main">
-                    <h2 id="modalTableTitle"></h2>
+                    <h2 id="modalTableTitle">Mesa</h2>
                     <div class="modal-consumed-products"></div>
                     <div class="modal-footer">
                         <div class="modal-total">Total: $<span id="modalTotal">0.00</span></div>
@@ -199,6 +194,61 @@
                             <i class="fas fa-file-invoice-dollar"></i> Generar Factura
                         </button>
                     </div>
+                </div>
+                <span class="close-modal">&times;</span>
+            </div>
+        </div>
+
+        <!-- Closing Bar Modal -->
+        <div id="closeBarModal" class="modal">
+            <div class="modal-content" style="grid-template-columns: 1fr;">
+                <div class="modal-main">
+                    <h2><i class="fas fa-door-closed"></i> Cierre de Jornada</h2>
+                    <p>Completa el reporte para finalizar el turno y generar el reporte general.</p>
+                    
+                    <form id="closingReportForm" class="closing-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Fecha</label>
+                                <input type="date" id="reportDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Encargado</label>
+                                <input type="text" id="reportStaff" placeholder="Nombre completo" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Hora Apertura</label>
+                                <input type="time" id="openTime" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Hora Cierre</label>
+                                <input type="time" id="closeTime" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Base en Caja (Apertura)</label>
+                                <input type="number" id="baseCash" value="0" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Efectivo Final</label>
+                                <input type="number" id="finalCash" value="0" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Observaciones</label>
+                            <textarea id="reportNotes" rows="3" placeholder="Novedades o comentarios del turno..."></textarea>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger close-modal-btn">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-file-export"></i> Finalizar y Reportar
+                            </button>
+                        </div>
+                    </form>
                 </div>
                 <span class="close-modal">&times;</span>
             </div>
