@@ -436,6 +436,37 @@ main {
     transform: translateX(-50%) translateY(0);
 }
 
+.tables {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* Confirmation Modal */
+.confirmation-modal {
+    max-width: 450px;
+    grid-template-columns: 1fr;
+}
+
+.warning-icon {
+    font-size: 4rem;
+    color: var(--danger);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.confirmation-modal .modal-main {
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+}
+
+.confirmation-modal p {
+    color: var(--text-dim);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
 /* Responsive */
 @media (max-width: 1100px) {
     main {
@@ -445,5 +476,14 @@ main {
         position: relative;
         top: 0;
         height: auto;
+    }
+    .tables {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 1600px) {
+    .tables {
+        grid-template-columns: repeat(3, 1fr);
     }
 }

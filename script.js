@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalBarDisplay = document.getElementById('totalBar');
     const tableModal = document.getElementById('tableModal');
     const closeBarModal = document.getElementById('closeBarModal');
+    const confirmClearModal = document.getElementById('confirmClearModal');
+    const confirmClearBtn = document.getElementById('confirmClearBtn');
     const modalTableTitle = document.getElementById('modalTableTitle');
     const modalTotalDisplay = document.getElementById('modalTotal');
     const modalConsumedContainer = document.querySelector('.modal-consumed-products');
@@ -17,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let isBarOpen = false;
     let currentTable = null;
+    let tableToClear = null;
     let openingTime = "";
     
     // Records of all closed bills today for the final report
@@ -26,7 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
         table1: { total: 0, products: [] },
         table2: { total: 0, products: [] },
         table3: { total: 0, products: [] },
-        table4: { total: 0, products: [] }
+        table4: { total: 0, products: [] },
+        table5: { total: 0, products: [] },
+        table6: { total: 0, products: [] }
     };
 
     // --- Helpers ---
@@ -393,12 +398,14 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('click', (e) => {
         if (e.target === tableModal) closeModal(tableModal);
         if (e.target === closeBarModal) closeModal(closeBarModal);
+        if (e.target === confirmClearModal) closeModal(confirmClearModal);
     });
 
     document.querySelectorAll('.close-modal, .close-modal-btn').forEach(btn => {
         btn.onclick = () => {
             closeModal(tableModal);
             closeModal(closeBarModal);
+            closeModal(confirmClearModal);
         };
     });
 
@@ -436,15 +443,21 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.btn-clear').forEach(btn => {
         btn.onclick = (e) => {
             e.stopPropagation();
-            const tid = `table${btn.dataset.table}`;
-            if (confirm('¿Vaciar los consumos de esta mesa?')) {
-                bills[tid].products = [];
-                bills[tid].total = 0;
-                updateUI(tid);
-                showNotification('Mesa limpiada');
-            }
+            tableToClear = `table${btn.dataset.table}`;
+            openModal(confirmClearModal);
         };
     });
+
+    confirmClearBtn.onclick = () => {
+        if (tableToClear) {
+            bills[tableToClear].products = [];
+            bills[tableToClear].total = 0;
+            updateUI(tableToClear);
+            closeModal(confirmClearModal);
+            showNotification('Mesa limpiada exitosamente');
+            tableToClear = null;
+        }
+    };
 
     initModalMenu();
     updateGeneralTotalUI();

@@ -68,18 +68,46 @@
                         <span class="price">$4.000</span>
                     </div>
                 </div>
-                <div class="product" draggable="true" data-name="Nachos" data-price="22000">
-                    <i class="fas fa-pizza-slice"></i>
+                <div class="product" draggable="true" data-name="Hamburguesa" data-price="18000">
+                    <i class="fas fa-hamburger"></i>
                     <div class="product-info">
-                        <span class="name">Nachos</span>
-                        <span class="price">$22.000</span>
+                        <span class="name">Hamburguesa</span>
+                        <span class="price">$18.000</span>
                     </div>
                 </div>
-                <div class="product" draggable="true" data-name="Alitas" data-price="37000">
+                <div class="product" draggable="true" data-name="Papas Fritas" data-price="8000">
+                    <i class="fas fa-fries"></i>
+                    <div class="product-info">
+                        <span class="name">Papas Fritas</span>
+                        <span class="price">$8.000</span>
+                    </div>
+                </div>
+                <div class="product" draggable="true" data-name="Nachos XL" data-price="25000">
+                    <i class="fas fa-pizza-slice"></i>
+                    <div class="product-info">
+                        <span class="name">Nachos XL</span>
+                        <span class="price">$25.000</span>
+                    </div>
+                </div>
+                <div class="product" draggable="true" data-name="Alitas" data-price="32000">
                     <i class="fas fa-drumstick-bite"></i>
                     <div class="product-info">
                         <span class="name">Alitas</span>
-                        <span class="price">$37.000</span>
+                        <span class="price">$32.000</span>
+                    </div>
+                </div>
+                <div class="product" draggable="true" data-name="Soda Saborizada" data-price="9500">
+                    <i class="fas fa-glass-martini-alt"></i>
+                    <div class="product-info">
+                        <span class="name">Soda Sab.</span>
+                        <span class="price">$9.500</span>
+                    </div>
+                </div>
+                <div class="product" draggable="true" data-name="Jarrita Cerveza" data-price="15000">
+                    <i class="fas fa-beer"></i>
+                    <div class="product-info">
+                        <span class="name">Jarra Cer.</span>
+                        <span class="price">$15.000</span>
                     </div>
                 </div>
             </div>
@@ -146,6 +174,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Mesa 4 -->
                 <div class="table" id="table4" data-table="4">
                     <div class="table-header">
                         <h2>Mesa 4</h2>
@@ -160,6 +189,46 @@
                                 <i class="fas fa-file-invoice-dollar"></i> Factura
                             </button>
                             <button class="btn btn-danger btn-clear" data-table="4">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mesa 5 -->
+                <div class="table" id="table5" data-table="5">
+                    <div class="table-header">
+                        <h2>Mesa 5</h2>
+                        <span class="status-badge">Libre</span>
+                    </div>
+                    <div class="drop-zone">Arraste productos aquí</div>
+                    <div class="consumed-products"></div>
+                    <div class="bill">
+                        <span class="bill-total">Total: $0</span>
+                        <div class="table-actions">
+                            <button class="btn btn-primary btn-generate" data-table="5">
+                                <i class="fas fa-file-invoice-dollar"></i> Factura
+                            </button>
+                            <button class="btn btn-danger btn-clear" data-table="5">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mesa 6 -->
+                <div class="table" id="table6" data-table="6">
+                    <div class="table-header">
+                        <h2>Mesa 6</h2>
+                        <span class="status-badge">Libre</span>
+                    </div>
+                    <div class="drop-zone">Arraste productos aquí</div>
+                    <div class="consumed-products"></div>
+                    <div class="bill">
+                        <span class="bill-total">Total: $0</span>
+                        <div class="table-actions">
+                            <button class="btn btn-primary btn-generate" data-table="6">
+                                <i class="fas fa-file-invoice-dollar"></i> Factura
+                            </button>
+                            <button class="btn btn-danger btn-clear" data-table="6">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>
@@ -251,6 +320,20 @@
                     </form>
                 </div>
                 <span class="close-modal">&times;</span>
+            </div>
+        </div>
+        <!-- Confirm Clear Modal -->
+        <div id="confirmClearModal" class="modal">
+            <div class="modal-content confirmation-modal">
+                <div class="modal-main">
+                    <div class="warning-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <h2>¿Vaciar Mesa?</h2>
+                    <p>Se eliminarán todos los consumos actuales de la mesa. Esta acción no se puede deshacer.</p>
+                    <div class="modal-footer" style="border: none; padding-top: 0;">
+                        <button class="btn close-modal-btn">Cancelar</button>
+                        <button class="btn btn-danger" id="confirmClearBtn">Vaciar Ahora</button>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
