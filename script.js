@@ -389,7 +389,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Close Modals
+    // Close Modals by clicking backdrop
+    window.addEventListener('click', (e) => {
+        if (e.target === tableModal) closeModal(tableModal);
+        if (e.target === closeBarModal) closeModal(closeBarModal);
+    });
+
     document.querySelectorAll('.close-modal, .close-modal-btn').forEach(btn => {
         btn.onclick = () => {
             closeModal(tableModal);

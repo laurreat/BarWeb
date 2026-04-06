@@ -299,6 +299,21 @@ main {
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 1010;
+}
+
+.close-modal:hover {
+    color: var(--primary);
+}
+
 .modal.active .modal-content {
     transform: scale(1);
 }
